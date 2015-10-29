@@ -1,24 +1,23 @@
-package com.efrei.queue;
+package receiver;
 
+import javax.jms.Queue;
+import javax.jms.QueueConnectionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class MainQueueReceiver {
+public class MyReceiver {
 
 	public static void main(String[] args) {
-		
 		try{
-		
+			
 			ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContextJMS.xml");
-
-			AQueueReceiver receiver = (AQueueReceiver) applicationContext.getBean("queueReceiver");
-		
-			Thread.sleep(10000);
+			QueueConnectionFactory factory = (QueueConnectionFactory) applicationContext.getBean("connectionFactory");
+			
+			Queue queue = (Queue) applicationContext.getBean("queue");
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
 	}
 
 }

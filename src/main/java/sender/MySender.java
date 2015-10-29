@@ -1,23 +1,27 @@
-package com.efrei.topic;
+package sender;
+
+import javax.jms.Queue;
+import javax.jms.QueueConnectionFactory;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class MainTopicPublisher {
+public class MySender {
 
 	public static void main(String[] args) {
-
+		
 		try{
 			
 			ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContextJMS.xml");
-
-			ATopicPublisher publisher = (ATopicPublisher) applicationContext.getBean("topicPublisher");
+			QueueConnectionFactory factory = (QueueConnectionFactory) applicationContext.getBean("connectionFactory");
 			
-			publisher.publishMessage("Coucou");
+			Queue queue = (Queue) applicationContext.getBean("queue");
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+
+
 
 	}
 
