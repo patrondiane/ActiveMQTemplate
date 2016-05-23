@@ -10,6 +10,8 @@ import javax.jms.QueueSession;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 
+import javax.jms.Queue;
+import javax.jms.QueueConnectionFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -33,7 +35,7 @@ public class MyReceiver {
 			Message message = receiver.receive();	// bloque sur attente message
 			
 			System.out.println(message);
-			
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
