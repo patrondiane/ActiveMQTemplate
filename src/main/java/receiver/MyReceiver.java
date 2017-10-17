@@ -27,6 +27,7 @@ public class MyReceiver {
 			
 			// Create a connection. See https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html		
 			// Open a session			
+			// start the connection
 			// Create a receive			
 			// Receive the message
 			

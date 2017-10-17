@@ -22,24 +22,19 @@ public class MySender {
 			QueueConnectionFactory factory = (QueueConnectionFactory) applicationContext.getBean("connectionFactory");
 			
 			Queue queue = (Queue) applicationContext.getBean("queue");
-			// connection au message broker
-			QueueConnection connection = factory.createQueueConnection();
-			// ouvrir session sans transaction (1 seul message) et acquitement automatique
-			QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
-			connection.start();
-			// créer et envoyer message
-			TextMessage message = session.createTextMessage("bonjour");
-			QueueSender sender = session.createSender(queue);
-			sender.send(message);
 			
-			session.close();
-			connection.close();
-			
+			// Create a connection. See https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html		
+			// Open a session	
+			// Start the connection
+			// Create a sender			
+			// Create a message
+			// Send the message
+			// Close the session
+			// Close the connection
+		
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-
-
 
 	}
 
