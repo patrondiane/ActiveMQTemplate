@@ -15,6 +15,11 @@ public class MyReceiver {
 			
 			Queue queue = (Queue) applicationContext.getBean("queue");
 			
+			// Create a connection. See https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html		
+			// Open a session			
+			// Create a receive			
+			// Receive the message
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
