@@ -23,6 +23,8 @@ public class MySender {
 			
 			Queue queue = (Queue) applicationContext.getBean("queue");
 			
+			System.out.println(queue);
+			
 			// Create a connection. See https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html		
 			// Open a session	
 			// Start the connection
