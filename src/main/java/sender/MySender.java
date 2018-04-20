@@ -1,5 +1,6 @@
 package sender;
 
+import javax.jms.Message;
 import javax.jms.Queue;
 import javax.jms.QueueConnection;
 import javax.jms.QueueConnectionFactory;
@@ -25,15 +26,30 @@ public class MySender {
 			
 			System.out.println(queue);
 			
-			// Create a connection. See https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html		
-			// Open a session	
+			// Create a connection. See https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html	
+			QueueConnection connection = factory.createQueueConnection() ;
+			
+			// Open a session
+			QueueSession session = connection.createQueueSession(false, QueueSession.AUTO_ACKNOWLEDGE) ;
+			
 			// Start the connection
-			// Create a sender			
+			connection.start();
+			
+			// Create a sender		
+			QueueSender sender = session.createSender(queue) ;
+			
 			// Create a message
+			Message message = session.createTextMessage("Coucou");
+			
 			// Send the message
+			sender.send(message);
+			
 			// Close the session
+			session.close();
+			
 			// Close the connection
-		
+			connection.close();
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
