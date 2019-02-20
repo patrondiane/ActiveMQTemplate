@@ -26,21 +26,10 @@ public class MyReceiver {
 			Queue queue = (Queue) applicationContext.getBean("queue");
 			
 			// Create a connection. See https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html
-			QueueConnection connection = factory.createQueueConnection() ;
-			
 			// Open a session	
-			QueueSession session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE) ;
-			
 			// start the connection	
-			connection.start();
-			
 			// Create a receive	
-			QueueReceiver receive = session.createReceiver(queue);
-			
 			// Receive the message
-			Message message = receive.receive();
-			
-			System.out.println(message);
 			
 		}catch(Exception e){
 			e.printStackTrace();
